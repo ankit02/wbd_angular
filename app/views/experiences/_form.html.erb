@@ -1,0 +1,20 @@
+<%= form_for(@experience) do |f| %>
+  <% if @experience.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
+
+      <ul>
+      <% @experience.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  Name: <%= f.text_field :experience_name, "ng-model"=>"experience.experience_name" %>
+  Speciality: <%= f.text_field :special, "ng-model"=>"experience.experience_name" %>
+  Entry Fee: <%= f.text_field :budget, "ng-model"=>"experience.experience_name" %>
+  Description: <%= f.text_area :description, size: "60x12", "ng-model"=>"experience.experience_name" %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
