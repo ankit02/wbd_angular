@@ -1,0 +1,27 @@
+// app = angular.module("wbd", ["ngResource"])
+
+// app.factory "Experience", ["$resource", ($resource) ->
+//   $resource("/experiences/:id", {id: "@id"}, {update: {method: "PUT"},remove: {method: 'DELETE', headers: {'Content-Type': 'application/json'}}})
+// ]
+
+// @ExperienceCtrl = ["$scope", "Experience", ($scope, Experience) ->
+//   $scope.experiences = Experience.query()
+  
+//   $scope.addExperience = ->
+//     experience = Experience.save($scope.newExperience)
+//     $scope.experiences.push(experience)
+//     $scope.newExperience = {}
+
+//    $scope.deleteExperience = (id) ->
+//     $remove();
+    
+//   $scope.drawWinner = ->
+//     pool = []
+//     angular.forEach $scope.entries, (entry) ->
+//       pool.push(entry) if !entry.winner
+//     if pool.length > 0
+//       entry = pool[Math.floor(Math.random()*pool.length)]
+//       entry.winner = true
+//       entry.$update()
+//       $scope.lastWinner = entry
+// ]

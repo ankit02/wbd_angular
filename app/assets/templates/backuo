@@ -1,0 +1,61 @@
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+   <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<h1>Listing experiences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+<li><a ng-click="newExperience()">New Experience</a></li>
+  <tbody ng-repeat="experience in data.experiences">
+      <tr>
+        <td><a ng-click="viewExperience(experience.id)">{{ experience.experience_name }}</a></td>
+        <td><a href="/experiences/{{experience.id}}/edit">Edit</a></td>
+        <td><a class="deleteExperience" experienceid={{experience.id}}>Delete</a></td>
+        <td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+
+<div id="deleteConfirm" style="display:none;"> 
+  Are you sure?<br>
+</div>
+
+<script>
+
+
+$(document).on('click', '.deleteExperience' , function(){
+     //alert("hello");
+     $( "#deleteConfirm" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+      });
+  var expid = $(this).attr('experienceid');
+  alert(expid);
+  $('div#deleteConfirm').append("<button class='deleteExperienceButton' ng-click='deleteExperience('"+ expid + "')'");
+  $('div#deleteConfirm').dialog("open");
+});
+
+
+$('.deleteExperienceButton').on('click',function(){
+   $('div#deleteConfirm').dialog("destroy").remove();
+});
+
+
+
+</script> 
+

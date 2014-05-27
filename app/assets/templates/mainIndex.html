@@ -1,0 +1,24 @@
+<h1>Listing experiences</h1>
+<li><a ng-click="newExperience()">New Experience</a></li>
+<input type="text" ng-model="searchtext">
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody ng-repeat="experience in data.experiences | filter:searchtext">
+      <tr>
+        <td><a ng-click="viewExperience(experience.id)">{{ experience.experience_name }}</a></td>
+        <td><a href="/experiences/{{experience.id}}/edit">Edit</a></td>
+        <td><a ng-click="deleteExperience(experience.id)">Delete</a></td>
+        <td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+

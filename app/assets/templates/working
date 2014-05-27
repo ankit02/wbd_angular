@@ -1,0 +1,23 @@
+<h1>Listing experiences</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+<li><a ng-click="newExperience()">New Experience</a></li>
+  <tbody ng-repeat="experience in data.experiences">
+      <tr>
+        <td><a ng-click="viewExperience(experience.id)">{{ experience.experience_name }}</a></td>
+        <td><a href="/experiences/{{experience.id}}/edit">Edit</a></td>
+        <td><a ng-click="deleteExperience(experience.id)">Delete</a></td>
+        <td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+

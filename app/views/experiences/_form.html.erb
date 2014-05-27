@@ -1,4 +1,4 @@
-<%= form_for(@experience) do |f| %>
+<%= form_for(@experience) do |f|  %>
   <% if @experience.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@experience.errors.count, "error") %> prohibited this experience from being saved:</h2>
@@ -10,10 +10,20 @@
       </ul>
     </div>
   <% end %>
+<!--   <div>
+    <h1 ng-view></h1>
+  <form ng-submit="addExperience()">
+    <input type="text" ng-model="newExperience.experience_name">
+    <input type="text" ng-model="newExperience.special">
+    <input type="text" ng-model="newExperience.budget">
+    <input type="text" ng-model="newExperience.description">
+    <input type="submit" value="Add">
+  </form>
+</div> -->
   Name: <%= f.text_field :experience_name, "ng-model"=>"experience.experience_name" %>
-  Speciality: <%= f.text_field :special, "ng-model"=>"experience.experience_name" %>
-  Entry Fee: <%= f.text_field :budget, "ng-model"=>"experience.experience_name" %>
-  Description: <%= f.text_area :description, size: "60x12", "ng-model"=>"experience.experience_name" %>
+  Speciality: <%= f.text_field :special, "ng-model"=>"experience.special" %>
+  Entry Fee: <%= f.text_field :budget, "ng-model"=>"experience.budget" %>
+  Description: <%= f.text_area :description, size: "60x12", "ng-model"=>"experience.description" %>
   <div class="actions">
     <%= f.submit %>
   </div>

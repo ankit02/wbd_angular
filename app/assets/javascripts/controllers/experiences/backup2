@@ -1,0 +1,34 @@
+@ExperienceEditCtrl = ($scope, $location, $routeParams, $q, postData) ->
+	$scope.data =
+		postData: postData.data
+		currentExperience:
+			experience_name: ''
+			special: ''
+			budget: ''
+			description: ''
+	#alert($routeParams.experienceId)		
+	$scope.data.experienceId = $routeParams.experienceId
+	
+	$scope.prepPostData = ->
+		experience = _.findWhere(postData.data.experiences, { id: parseInt($scope.data.experienceId) })
+		alert(experience)
+		# $scope.newExperience =
+		# 		experience_name: experience.experience_name
+		# 		special: experience.special
+		# 		budget: experience.budget
+		# 		description: experience.description
+
+	@deferred = $q.defer()
+	@deferred.promise.then($scope.prepPostData())
+	postData.loadExperiences(@deferred)
+
+	# $scope.newExperience =
+	# 	experienceId: $scope.data.experienceId
+	# 	experience_name: ''
+	# 	special: ''
+	# 	budget: ''
+	# 	description: ''
+
+	$scope.updateExp = ->
+		postData.updateExp($scope.newExperience)
+@ExperienceEditCtrl.inject = ['$scope', '$location', '$routeParams', '$q', 'postData']			

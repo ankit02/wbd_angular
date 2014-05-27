@@ -1,0 +1,12 @@
+<div ng-show={{ data.successmessage }}></div>
+<div class="container" style="margin-top: 40px">
+ <!--  <h1 class="text-center">{{ data.experienceId }} - {{ data.postData.experiences[data.experienceId].experience_name }}</h1> -->
+ <h1>{{data.currentExperience.experience_name}}</h1>
+  <div class="row">
+    <!-- <p>{{ data.postData.experiences[data.experienceId].special }}</p> -->
+    <p>{{data.currentExperience.special}}</p>
+  </div>
+  <div class="row">
+    <button class="btn btn-default" ng-click="editPost()">Edit</button>
+  </div>
+</div>

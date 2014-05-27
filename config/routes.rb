@@ -1,11 +1,19 @@
 Wbd::Application.routes.draw do
-  resources :experiences
+  #resources :experiences 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'experiences#index'
+  get '/experience/:id' => 'experiences#index'
+  get '/experiences/:id/edit' => 'experiences#index'
+  get 'getjson' => 'experiences#getjson', :defaults => {:format => "json"}
+  post '/experiences/:id' => 'experiences#update', :defaults => {:format => "json"}
+  post '/experiences/:id/delete' => 'experiences#destroy'
+  post '/experiences' => 'experiences#create', :defaults => {:format => "json"}
+  get '*path', to: 'experiences#index'
+ 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
